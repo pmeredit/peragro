@@ -12,8 +12,4 @@ mod tests {
 
 pub trait Visitor {}
 
-pub trait Walkable {
-    fn walk<V>(self, _visitor: &mut V) -> Self
-    where
-        V: Visitor;
-}
+pub trait Walkable {}
