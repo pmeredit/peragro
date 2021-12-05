@@ -2,22 +2,23 @@ use std::collections::BTreeMap;
 
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd)]
 pub enum Type {
-    Struct(Struct),
-    Enum(Enum),
+    Enum(EnumDefinition),
+    Path(Vec<String>),
+    Ptr(Box<Type>),
+    Reference(Box<Type>),
+    Struct(StructDefinition),
     Tuple(Vec<Type>),
     Opaque(String),
 }
 
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd)]
-pub struct Struct {
-    name_space: Vec<String>,
-    name: String,
+pub struct StructDefinition {
+    generics: Vec<String>,
     fields: BTreeMap<String, Type>,
 }
 
 #[derive(Debug, Eq, PartialEq, Ord, PartialOrd)]
-pub struct Enum {
-    name_space: Vec<String>,
-    name: String,
+pub struct EnumDefinition {
+    generics: Vec<String>,
     variants: BTreeMap<String, Type>,
 }
