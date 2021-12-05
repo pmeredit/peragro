@@ -9,3 +9,11 @@ mod tests {
         assert_eq!(result, 4);
     }
 }
+
+pub trait Visitor {}
+
+pub trait Walkable {
+    fn walk<V>(self, _visitor: &mut V) -> Self
+    where
+        V: Visitor;
+}

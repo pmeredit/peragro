@@ -4,6 +4,7 @@ use std::collections::BTreeMap;
 pub enum Type {
     Struct(Struct),
     Enum(Enum),
+    Tuple(Vec<Type>),
     Opaque(String),
 }
 
