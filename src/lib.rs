@@ -1,4 +1,5 @@
 mod ast;
+mod util;
 
 #[cfg(test)]
 mod tests {
